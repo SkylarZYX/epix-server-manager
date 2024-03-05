@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+
+slotarr1=("Test Server" "/home/ubuntu/minecraft-servers/test-server")
+slotarr2=("Empty" "Directory")
+slotarr3=("Empty" "Directory")
+slotarr4=("Empty" "Directory")
+
+slot1 () {
+	if [ ${slotarr1[1]} == "Directory" ]; then
+		echo "There is no entered directory for this server slot!"
+	else
+		cd ${slotarr1[1]}
+		./mc-manage.sh
+	fi
+}
+
+slot2 () {
+        if [ ${slotarr2[1]} == "Directory" ]; then
+                echo "There is no entered directory for this server slot!"
+        else
+                cd ${slotarr2[1]}
+                ./mc-manage.sh
+        fi
+}
+
+slot3 () {
+        if [ ${slotarr3[1]} == "Directory" ]; then
+                echo "There is no entered directory for this server slot!"
+        else
+                cd ${slotarr3[1]}
+                ./mc-manage.sh
+        fi
+}
+
+slot4 () {
+        if [ ${slotarr4[1]} == "Directory" ]; then
+                echo "There is no entered directory for this server slot!"
+        else
+                cd ${slotarr4[1]}
+                ./mc-manage.sh
+        fi
+}
+
+clear
+echo "Epix Server Manager v1.0"
+echo "Programmed by SkylarZYX/Epix Group"
+echo ""
+echo "Currently Added Servers:"
+echo ""
+echo "${slotarr1[0]} [1]"
+echo "${slotarr2[0]} [2]"
+echo "${slotarr3[0]} [3]"
+echo "${slotarr4[0]} [4]"
+echo ""
+echo "Please enter a server number [#]"
+read srvno
+
+if [ $srvno == 1 ] ; then
+	slot1
+else
+	if [ $srvno == 2 ] ; then
+        	slot2
+	else
+		if [ $srvno == 3 ] ; then
+        		slot3
+		else
+			if [ $srvno == 4 ] ; then
+        			slot4
+			else
+				echo "invalid number"
+			fi
+		fi
+	fi
+fi
+
+exit 0
