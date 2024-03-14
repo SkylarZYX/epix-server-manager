@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
 
-sessionname="mc-test"
-worldname="world"
-File="server-online"
+updatevars () {
+        javacommand=`sed -n 's/^javacommand=\(.*\)/\1/p' < server-info`
+        servername=`sed -n 's/^servername=\(.*\)/\1/p' < server-info`
+        sessionname=`sed -n 's/^sessionname=\(.*\)/\1/p' < server-info`
+        worldname=`sed -n 's/^worldname=\(.*\)/\1/p' < server-info`
+}
+updatevars
 
-cd "$(dirname "${BASH_SOURCE[0]}")"
+File="server-online"
 
 if grep -q 't' "$File"; then
 	tmux send-keys -t $sessionname "say <AUTO BACKUP> $sessionname is going to temporarily shut down in one minute for a weekly automated backup! Please leave the game!" Enter

@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
-servername="MCTEST"
-sessionname="mc-test"
+updatevars () {
+	javacommand=`sed -n 's/^javacommand=\(.*\)/\1/p' < server-info`
+	servername=`sed -n 's/^servername=\(.*\)/\1/p' < server-info`
+	sessionname=`sed -n 's/^sessionname=\(.*\)/\1/p' < server-info`
+	worldname=`sed -n 's/^worldname=\(.*\)/\1/p' < server-info`
+}
+updatevars
 
 menu () {
 	echo "$servername"
@@ -14,7 +19,7 @@ menu () {
 	echo "List Backups [5]"
 	echo "Perform a manual backup [6]"
 	echo "Restore server world files [7]"
-	echo "Edit server.properties [8]"
+	echo "Edit server-info or server.properties [8]"
 	echo "Exit Options Menu [9]"
 	echo ""
 	echo "Please enter an option number [#]"
@@ -73,7 +78,23 @@ menu () {
 								menu
 							else
 								if [ $srvno == 8 ] ; then
-									nano server.properties
+									echo "Choose to edit: "
+									echo ""
+									echo "Server Info [1]"
+									echo "Server Properties [2]"
+									echo ""
+									read editreply
+									if [ $editreply == 1 ] ; then
+										nano server-info
+										echo "Updating Info..."
+										updatevars
+									else
+										if [ $editreply == 2 ] ; then
+											nano server.properties
+										else
+											echo "invalid number!"
+										fi
+									fi
 									menu
 								else
 									if [ $srvno == 9 ] ; then

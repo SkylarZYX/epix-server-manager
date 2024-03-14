@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-slotarr1=("Test Server" "/home/ubuntu/minecraft-servers/test-server")
+slotarr1=("Test Server" "/mnt/external-hdd-14tb/other-stuff/minecraft-servers/test-server")
 slotarr2=("Empty" "Directory")
 slotarr3=("Empty" "Directory")
 slotarr4=("Empty" "Directory")
@@ -42,7 +42,7 @@ slot4 () {
 }
 
 clear
-echo "Epix Server Manager v1.0"
+echo "Epix Server Manager v1.1"
 echo "Programmed by SkylarZYX/Epix Group"
 echo ""
 echo "Currently Added Servers:"
