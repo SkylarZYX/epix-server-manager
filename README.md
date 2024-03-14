@@ -1,5 +1,7 @@
 **Epix Server Manager v1.1**
 
+create a "Backups" directory with subdirectories named "auto" and "manual" if there isn't any included.
+
 you have to edit the values at the top of the mc-srvs script with your minecraft server directories to get it to register!
 
 to get the server running with your server jar, edit the server info by pressing 8 in the mc-manage manager and you should be able to change the java command, you also can change the world name for backup scripts to register it, and server.properties once that is created. tmux sessison name can be changed as well to prevent session mix-ups when running multiple servers.
