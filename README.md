@@ -19,7 +19,7 @@ f = server is offline
 t = server is online
 
 If the scripts do not want to run, make sure they are executable!
-Use this command in the directory that mc-srvs and your minecraft servers directories are located at: chmod 775 mc-srvs && find . -name "*.sh" -exec chmod 775 {} \;
+Use this command in the directory that mc-srvs and your minecraft servers directories are located at: `chmod 775 mc-srvs && find . -name "*.sh" -exec chmod 775 {} \;`
 
 the command will recursively change the scripts to be executable with chmod.
 
